@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  {{ dump() }}
+  <h2 class="page-header">Latest Article</h2>
+    <div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Test</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for tes in test %}
+      <tr>
+        <th scope="row">{{ tes.id }}</th>
+        <td>{{ tes.name }}</td>
+        <td>{{ tes.date|date('F j, Y') }}</td>
+        <td><a href="/test/details/{{ tes.id }}" class="btn btn-success">View</a>
+          <a href="/test/edit/{{ tes.id }}" class="btn btn-default">Edit</a>
+          <a href="/test/delete/{{ tes.id }}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {#<tr>#}
+        {#<th scope="row">2</th>#}
+        {#<td>Jacob</td>#}
+        {#<td>Thornton</td>#}
+        {#<td>@fat</td>#}
+      {#</tr>#}
+      {#<tr>#}
+        {#<th scope="row">3</th>#}
+        {#<td>Larry</td>#}
+        {#<td>the Bird</td>#}
+        {#<td>@twitter</td>#}
+      {#</tr>#}
+       {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

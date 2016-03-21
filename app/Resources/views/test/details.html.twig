@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <a href="/" class="btn btn-default">Back to Article</a>
+  <h2 class="page-header">{{ test.name }}</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Category: {{ test.category }}</li>
+    <li class="list-group-item">Priority: {{ test.priority }}</li>
+    <li class="list-group-item">Date: {{ test.date|date('F j, Y') }}</li>
+    <li class="list-group-item">Description: {{ test.description }}</li>
+    <li class="list-group-item">CreateDate: {{ test.createDate|date('F j, Y') }}</li>
+
+  </ul>
+{% endblock %}
