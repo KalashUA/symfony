@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\test;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -110,7 +112,8 @@ class TestController extends Controller
       $em->flush();
 
       $this->addFlash('notice', 'Article Updated');
-      return $this->redirectToRoute('test_page');
+      return new JsonResponse(array('message' => 'Success!'), 200);
+//      return $this->redirectToRoute('test_page');
     }
     return $this->render('test/edit.html.twig', array('test' => $test, 'form' => $form->createView()));
   }
